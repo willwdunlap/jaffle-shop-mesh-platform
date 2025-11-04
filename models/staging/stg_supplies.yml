@@ -4,6 +4,7 @@ models:
       List of our supply expenses data with basic cleaning and transformation applied.
 
       One row per supply cost, not per supply. As supply costs fluctuate they receive a new row with a new UUID. Thus there can be multiple rows per supply_id.
+    latest_version: 2
     access: public
     group: platform
     config:
@@ -20,9 +21,21 @@ models:
         data_type: text
       - name: product_id
         data_type: text
+      - name: product_desc
+        data_type: text
       - name: supply_name
         data_type: text
       - name: supply_cost
         data_type: number
       - name: is_perishable_supply
         data_type: boolean
+    versions:
+      - v: 1
+        deprecation_date: 2025-11-15 00:00:00.00+00:00
+        columns:
+          - include: all
+            exclude: [product_desc]
+      - v: 2
+        columns:
+          - include: all
+
