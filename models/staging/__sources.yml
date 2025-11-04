@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: ecom
+    database: dbt_raw
     schema: jaffle_shop_raw
     description: E-commerce data
     tables:
